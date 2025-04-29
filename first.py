@@ -9,12 +9,12 @@
 # up above the wonder sky
 # like a diamond in the sky''')
 
-# import pyttsx3
-# engine = pyttsx3.init()
+import pyttsx3
+engine = pyttsx3.init()
 
-# a = input("Enter the message: ")
+a = input("Enter the message: ")
 
 
-# engine.say(a)
-# engine.runAndWait()
+engine.say(a)
+engine.runAndWait()
 print(1 + 1)
