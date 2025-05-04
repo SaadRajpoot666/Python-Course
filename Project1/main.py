@@ -1,31 +1,24 @@
-'''
-1 for snake 
--1 for water
-0 for gun
-'''
-computer = -1
-youstr = input("Enter Your Choice: ")
-youDict = {"s":1,"w":-1,"g":0} 
-reverseDict = {1:"Snake",-1:"Water",0:"gun"}
-you = youDict[youstr]
+import random
 
-invertDict =   {"s":"Snake","w":"Water","g":"Gun"}
+# 1 for Snake, -1 for Water, 0 for Gun
+options = {"s": 1, "w": -1, "g": 0}
+names = {1: "Snake", -1: "Water", 0: "Gun"}
 
-print(f"You Chose {invertDict[youstr]} and Computer Choose {reverseDict[computer]}")
+# Get user's input
+youstr = input("Choose (s for Snake, w for Water, g for Gun): ").lower()
 
-if(computer == you):
-    print("Draw")
-elif(computer == -1 and you == 1):
-    print("You Win!")
-elif(computer == -1 and you == 0):
-    print("You Loose!")
-elif(computer == 1 and you == -1):
-    print("You loose!")
-elif(computer == 1 and you == 0 ):
-    print("You win!")
-elif(computer == 0 and you == -1):
-    print("You win!")
-elif(computer ==0 and you == 1):
-    print("You Loose!")
+# Validate input
+if youstr not in options:
+    print("Invalid choice, Jani!")
 else:
-    print("Something went wrong")
+    you = options[youstr]
+    computer = random.choice([1, -1, 0])
+
+    print(f"You chose {names[you]} and Computer chose {names[computer]}")
+
+    if computer == you:
+        print("Draw 🤝")
+    elif (you == 1 and computer == -1) or (you == -1 and computer == 0) or (you == 0 and computer == 1):
+        print("🎉 You Win!")
+    else:
+        print("💔 You Lose!")
